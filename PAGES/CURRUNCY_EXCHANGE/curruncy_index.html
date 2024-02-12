@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="./CURRUENCY.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Currency Convertor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="blink"><b><i>Currency</i></b>&nbsp;<span><i><b>Convertor</b></i></span></h1>
+
+        <div class="box">
+            <div class="left_box">
+                <div class="flag-icon">
+                    <img src="https://flagcdn.com/16x12/us.png" alt="" id="countryflag1">
+                </div>
+                <select name="currency" class="currency" onchange="setcountryflag1(this)"></select>
+                <input type="number" name="" id="num" placeholder="Type a vale....">
+            </div>
+            <div class="right_box">
+                <div class="flag-icon"> 
+                    <img src="https://flagcdn.com/16x12/us.png" alt="" id="countryflag2">
+                </div>
+                <select name="currency" class="currency" onchange="setcountryflag2(this)"></select>
+                <b><input type="text" name="" id="ans" disabled placeholder="Get a value....."></b>
+            </div>
+        </div>
+        <button class="btn" id="btn">Convert</button>
+        <button class="btn" id="btn" onclick="window.location.href = 'file:///E:/READY%20MAIN%20PORTFOLIO/index.html#project'">Back</button>
+    </div>
+    <footer>
+        <span>Created By <a href="https://linktr.ee/Devilhub">DEVIL HUB</a> | <span class="far fa-copyright"></span> 2020 All rights reserved.</span>
+    </footer>
+    
+
+
+    <script src="script.js"></script>
+</body>
+</html>
