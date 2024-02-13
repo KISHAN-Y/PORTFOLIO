@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
     $(window).scroll(function(){
         // sticky navbar on scroll script
@@ -95,3 +96,44 @@ $(document).ready(function(){
     });
 });
 
+
+
+const form = document.getElementById('contact-form');
+const fullName = document.getElementById("name");
+const email = document.getElementById("email");
+const subject = document.getElementById("subject");
+const message = document.getElementById("message"); // Add this line
+
+function sendEmail() {
+  const bodyMessage = `Full Name: ${fullName.value}<br> Email: ${email.value}<br> Subject: ${subject.value}<br> Message: ${message.value}`; // Include message value
+
+  Email.send({
+    SecureToken: "9954a0d5-7d09-4ff4-bec0-cfc1254f4cf5",
+    To: 'kishanyadav200903@gmail.com',
+    From: "kishanyadav200903@gmail.com",
+    Subject: subject.value,
+    Body: bodyMessage
+  }).then(
+    message => {
+      if (message === "OK") {
+        Swal.fire({
+          title: "Success",
+          text: "Message sent successfully",
+          icon: "success"
+        });
+      } else {
+        Swal.fire({
+          title: "Error",
+          text: "Message could not be sent",
+          icon: "error"
+        });
+      }
+    }
+  );
+}
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  sendEmail();
+  form.reset();
+});
