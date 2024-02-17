@@ -1,159 +1,128 @@
-*{
+/* Base styles for all devices */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body{
-    height: 100vh;
+
+body {
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     background: url("background.svg");
-    animation: rotate 3s infinite alternate linear;
     background-repeat: no-repeat;
     background-size: cover;
     flex-direction: column;
-    padding-top: 25vh;
+    padding-top: 5vh;
 }
-.container{
-    width: 490px;
-    padding: 10px 24px;
-    padding-right: 10px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+
+.container {
+    max-width: 100%;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 20px;
-    border:1px solid rgba(255, 255, 255, 0.18);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
-h1{
-    color: #fff;
-    margin-left: 85px;
-    margin-bottom: 0.5em;
-    margin-top: 10px;
-    font-family: sans-serif;
-    font-size: 30px;
-}
-@media (max-width: 400px){
-    h1{
-        font-size: 20px;
-        margin-left: 57px;
-    }
-    body{
-        animation: rotate 6s infinite alternate linear;
-    }
-}
-@media (max-width: 375px){
-    h1{
-        font-size: 25px;
-    }
-    body{
-        animation: rotate 6s infinite alternate linear;
-    }
-}
-@media (max-width:281px){
-    h1{
-        font-size: 20px;
-        margin-left: 31px;
-    }
-    body{
-        animation: rotate 6s infinite alternate linear;
-    }
 
+h1 {
+    color: #333;
+    font-family: sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
 }
-.blink{
-    animation-duration: 150ms;
-    animation-name: blink;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-  }
-  @keyframes blink{
-   from{
-    opacity: 1;
-    back:0;
-   }
-   to{
-    opacity: 0;
-   }
-  }
-.container .box{
-    width: 100%;
+
+.box {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
 }
-.box div{
+
+.left_box,
+.right_box {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.currency {
     width: 100%;
-}
-select{
-    width: 95%;
     height: 40px;
-    font-size: 1em;
-    cursor: pointer;
-    outline: none;
-    background: #7868e6;
-    color: black;
-    margin: 0.2em 0;
-    padding: 0 1em;
+    margin-bottom: 10px;
     border-radius: 10px;
-    border: none;
 }
-input{
-    width: 95%;
+
+.select-currency,
+input[type="number"] {
+    width: 100%;
     height: 40px;
     font-size: 1em;
-    margin: 0.2em 0;
+    margin-bottom: 10px;
     border-radius: 10px;
     border: none;
     background: #edeef7;
     outline: none;
     padding: 0 1em;
+    font-weight: bold;
 }
-.btn{
-    width: 98%;
+
+.btn {
+    width: 100%;
     height: 40px;
-    background: #364547;
+    background: #7868e6;
     color: white;
     border-radius: 10px;
     border: none;
     cursor: pointer;
     font-size: 1em;
-    margin: 0.3em 0;
+    margin: 10px 0;
 }
-.btn:hover{
-    background: aqua;
-    color: black;
+
+.btn:hover {
+    background: #574bac;
 }
-.flag-icon{
-    background: var(--color-white);
-    width: 30px;
-    height: 4vh;
+
+.flag-icon {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
     display: flex;
-    align-items: center;
     justify-content: center;
-  }
-  .flag-icon img{
-    width: 30px;
-    height: 20px;
-  }
-@keyframes rotate{
-    100%{
-        background-position: 15% 50%;
+    align-items: center;
+}
+
+img {
+    height: 30px;
+    max-width: 100%;
+    max-height: 100%;
+    border: 2px dotted #555;
+}
+
+footer {
+    padding: 15px 0;
+    color: #333;
+    text-align: center;
+    font-size: 16px;
+}
+
+
+/* Media query for mobile devices */
+@media only screen and (max-width: 768px) {
+    .box {
+        flex-direction: column;
+        margin: 3px;
+    }
+    h1 {
+        font-size: 1.5rem; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .left_box,
+    .right_box {
+        flex: none; 
+        width: 100%; 
+        margin: 5px 0; 
     }
 }
-footer{
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);;
-    padding: 15px 23px;
-    color: rosybrown;
-    text-align: center;
-    margin-top: auto;
-    width: 100%;
-    font-size: 20PX;
-  }
-  footer span a{
-    color: #7868e6;
-    text-decoration: none;
-  }
-  footer span a:hover{
-    text-decoration: underline;
-  }
