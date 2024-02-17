@@ -10,30 +10,31 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="blink"><b><i>Currency</i></b>&nbsp;<span><i><b>Convertor</b></i></span></h1>
+    <h1 class="blink"><b><i>Currency</i></b>&nbsp;<span><i><b>Convertor</b></i></span></h1>
 
-        <div class="box">
-            <div class="left_box">
-                <div class="flag-icon">
-                    <img src="https://flagcdn.com/16x12/us.png" alt="" id="countryflag1">
-                </div>
-                <select name="currency" class="currency" onchange="setcountryflag1(this)"></select>
-                <input type="number" name="" id="num" placeholder="Type a vale....">
+    <div class="box">
+        <div class="left_box">
+            <div class="flag-icon">
+                <img src="https://flagcdn.com/16x12/us.png" alt="" id="countryflag1">
             </div>
-            <div class="right_box">
-                <div class="flag-icon"> 
-                    <img src="https://flagcdn.com/16x12/us.png" alt="" id="countryflag2">
-                </div>
-                <select name="currency" class="currency" onchange="setcountryflag2(this)"></select>
-                <b><input type="text" name="" id="ans" disabled placeholder="Get a value....."></b>
-            </div>
+            <select name="currency1" class="currency" onchange="setcountryflag1(this)"></select>
+            <input type="number" name="" id="num" placeholder="Type a vale....">
         </div>
-        <button class="btn" id="btn">Convert</button>
-        <button class="btn" id="btn" onclick="window.location.href = '../../index.html'">Back</button>
+        <div class="right_box">
+            <div class="flag-icon"> 
+                <img src="https://flagcdn.com/16x12/us.png" alt="" id="countryflag2">
+            </div>
+            <select name="currency2" class="currency" onchange="setcountryflag2(this)"></select>
+            <b><input type="number" name="" id="ans" disabled placeholder="Get a value....."></b>
+        </div>
     </div>
-    <footer>
-        <span>Created By <a href="https://linktr.ee/Devilhub">DEVIL HUB</a> | <span class="far fa-copyright"></span> 2020 All rights reserved.</span>
-    </footer>
+    <button class="btn" id="btn">Convert</button>
+    <button class="btn" id="btn" onclick="window.location.href = '../../index.html'">Back</button>
+</div>
+<footer>
+    <span>Created By <a href="https://linktr.ee/Devilhub">DEVIL HUB</a> | <span class="far fa-copyright"></span> 2020 All rights reserved.</span>
+</footer>
+
     
 
 
