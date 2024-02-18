@@ -1,3 +1,14 @@
+function toggleVisibility() {
+    var extraContent = document.querySelector('.extra');
+    if (extraContent.style.display === 'none') {
+        extraContent.style.display = 'block';
+        document.querySelector('.show-more-btn').textContent = 'Read less';
+    } else {
+        extraContent.style.display = 'none';
+        document.querySelector('.show-more-btn').textContent = 'Read more';
+    }
+}
+
 
 $(document).ready(function(){
     $(window).scroll(function(){
@@ -102,7 +113,7 @@ const form = document.getElementById('contact-form');
 const fullName = document.getElementById("name");
 const email = document.getElementById("email");
 const subject = document.getElementById("subject");
-const message = document.getElementById("message"); // Add this line
+const message = document.getElementById("message"); 
 
 function sendEmail() {
   const bodyMessage = `Full Name: ${fullName.value}<br> Email: ${email.value}<br> Subject: ${subject.value}<br> Message: ${message.value}`; // Include message value
