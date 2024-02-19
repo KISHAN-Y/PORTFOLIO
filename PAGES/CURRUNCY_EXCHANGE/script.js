@@ -1,5 +1,5 @@
 const select = document.querySelectorAll(".currency");
-const btn = document.getElementById("btn");
+const btn = document.getElementById("btn"); 
 const num = document.getElementById("num");
 const ans = document.getElementById("ans");
 
@@ -17,25 +17,43 @@ function display(data) {
   }
 }
 
+// Real-time conversion (on input change)
+num.addEventListener('input', () => {
+  convertFromInput();
+});
+
+// Conversion on button click
 btn.addEventListener("click", () => {
+  convertFromInput(); 
+});
+
+function convertFromInput() {
   let currency1 = select[0].value;
   let currency2 = select[1].value;
   let value = num.value;
 
-  if (currency1 != currency2) {
+  if (currency1 === currency2) { 
+    if (confirm("You've selected the same currency. Change one of them?")) {
+    } else {
+      ans.value = "";
+    }
+  } else if (value !== "") { 
     convert(currency1, currency2, value);
   } else {
-    alert("Choose Different Currencies !!!");
+    ans.value = ""; 
   }
-});
+}
+
 function setcountryflag1(code) {
-  var flag = code.value.substr(0,code.value.length-1).toLowerCase();
-  document.getElementById('countryflag1').src = "https://flagcdn.com/16x12/"+flag+".png";
+  var flag = code.value.substr(0, code.value.length - 1).toLowerCase();
+  document.getElementById('countryflag1').src = "https://flagcdn.com/16x12/" + flag + ".png";
 }
+
 function setcountryflag2(code) {
-  var flag = code.value.substr(0,code.value.length-1).toLowerCase();
-  document.getElementById('countryflag2').src = "https://flagcdn.com/16x12/"+flag+".png";
+  var flag = code.value.substr(0, code.value.length - 1).toLowerCase();
+  document.getElementById('countryflag2').src = "https://flagcdn.com/16x12/" + flag + ".png";
 }
+
 function convert(currency1, currency2, value) {
   const host = "api.frankfurter.app";
   fetch(
@@ -43,7 +61,6 @@ function convert(currency1, currency2, value) {
   )
     .then((val) => val.json())
     .then((val) => {
-      console.log(Object.values(val.rates)[0]);
       ans.value = Object.values(val.rates)[0];
     });
 }
