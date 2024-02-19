@@ -6,6 +6,7 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
+    user-select: none;
 }
 html{
     scroll-behavior: smooth;
@@ -104,16 +105,15 @@ section .title::after{
     background-color: #fff;
     /* opacity: 60%; */
     border-radius: 5%;
+    transition: all 0.2s ease;
 }
 .logo1:hover{
-    width: 85px;
-    height: 60px;
-    border-radius: 5%;
+    transform:scale(1.05);
 }
 .navbar .logo a{
     color: #fff;
     font-size: 35px;
-    font-weight: 200;
+    font-weight: 900;
 }
 .navbar .logo a span{
     color: crimson;
@@ -367,60 +367,81 @@ section .title::after{
 .skills .title::after {
     content: "what i know";
 }
+
 .skills-content .column {
     width: calc(50% - 30px);
 }
+
 .skills .skills-content .left .text {
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 10px;
 }
+
 .skills .skills-content .left p {
     text-align: justify;
 }
-.skills .skills-content .show-more-btn {
+
+.content-container {
+    overflow: hidden; 
+    display: flex; 
+    flex-direction: column;
+}
+
+.extra {
+    opacity: 0;
+    transition: opacity 5s ease-in-out 5s, max-height 5s ease-in-out;
+    max-height: 0; 
+}
+
+.extra.show {
+    opacity: 1;
+    max-height: 1000px;
+}
+
+.show-more-btn {
     display: inline-block;
     background: crimson;
     color: #fff;
     font-size: 18px;
     font-weight: 500;
     padding: 8px 16px;
-    margin-top: 20px;
+    margin-top: 10px; 
     border-radius: 6px;
     border: 2px solid crimson;
     cursor: pointer;
-}
-.skills .skills-content .show-more-btn:hover {
-    color: crimson;
-    background: none;
-}
-.content-container {
-    overflow: hidden;
-}
-.extra {
-    display: none;
+    transition: background-color 0.3s ease, color 0.3s ease; 
 }
 
-.skills .skills-content .right .bars{
-    margin-bottom: 15px;    
+.show-more-btn:hover {
+    color: crimson;  
+    background: none; 
 }
-.skills .skills-content .right .info{
+
+.skills .skills-content .right .bars {
+    margin-bottom: 15px;
+}
+
+.skills .skills-content .right .info {
     display: flex;
     margin-bottom: 5px;
     align-items: center;
     justify-content: space-between;
 }
-.skills .skills-content .right span{
+
+.skills .skills-content .right span {
     font-weight: 500;
     font-size: 18px;
 }
-.skills .skills-content .right .line{
+
+.skills .skills-content .right .line {
     height: 5px;
     width: 100%;
     background: lightgrey;
     position: relative;
 }
-.skills .skills-content .right .line::before{
+
+.skills .skills-content .right .line::before {
     content: "";
     position: absolute;
     height: 100%;
@@ -428,19 +449,24 @@ section .title::after{
     top: 0;
     background: crimson;
 }
-.skills-content .right .html::before{
+
+.skills-content .right .html::before {
     width: 90%;
 }
-.skills-content .right .css::before{
-    width: 60%;
-}
-.skills-content .right .js::before{
+
+.skills-content .right .css::before {
     width: 80%;
 }
-.skills-content .right .php::before{
-    width: 50%;
+
+.skills-content .right .js::before {
+    width: 80%;
 }
-.skills-content .right .mysql::before{
+
+.skills-content .right .php::before {
+    width: 60%;
+}
+
+.skills-content .right .mysql::before {
     width: 70%;
 }
 
@@ -508,20 +534,20 @@ section .title::after{
     background: crimson!important;
 }
 a:link{
-    color: #7f58af;
+    color: #ADD8E6;
 }
 a:visited {
-    color: #64C5EB;
+    color: #F5F5DC;
     background-color: transparent;
     text-decoration: none;
 }
 a:hover {
-    color: #E84D8A;
+    color: #E9967A;
     background-color: transparent;
-    text-decoration:none;
+    text-decoration:none;   
 }
 a:active {
-    color:#FEB326;
+    color:#228B22;
     background-color: transparent;
     text-decoration: none;
 }
@@ -552,9 +578,14 @@ a:active {
 .contact .contact-content .row .info{
     margin-left: 30px;
     cursor: pointer;
+    transition: all 0.2s ease;
+}
+.contact .contact-content .row .info:hover{
+    color: #E84D8A;
+    transform: scale(1.05);
 }
 .contact .contact-content .info .head{
-    font-weight: 500;
+    font-weight: 900;
 }
 .contact .contact-content .info .sub-title{
     color: #333;
@@ -584,8 +615,12 @@ a:active {
     outline: none;
     padding: 0 15px;
     font-size: 17px;
-    /* font-family: 'Poppins', sans-serif; */
     transition: all 0.3s ease;
+}
+.contact .right form .field input:hover,
+.contact .right form .textarea textarea:hover{
+    transform: scale(1.02);
+    border-color: crimson;
 }
 .contact .right form .field input:focus,
 .contact .right form .textarea textarea:focus{
