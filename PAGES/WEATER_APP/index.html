@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Weather App Project JavaScript</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script2.js" defer></script>
+  </head>
+  <body>
+    <div class="bby">
+    <div class="scroll-up-btn">
+      <i class="fas fa-angle-up"></i>
+    </div>
+    <div class="wea">
+    <h1>Weather Dashboard&ensp;<button onclick="toggleDarkMode()" class="len">ENGLISH</button></h1>
+  </div>
+    <section class="sec">
+        <div class="container">
+          <div class="weather-input">
+            <h3>Enter a City Name</h3>
+            <input class="city-input" type="text" placeholder="E.g., New York, London, Tokyo">
+            <button class="search-btn">Search</button>
+            <div class="separator"></div>
+            <button class="location-btn">Use Current Location</button>
+          </div>
+    </section>
+    <br><br><br>
+    <section class="src"  id="weatherResults">
+    <h1>Weather Dashboard</h1>
+    <br>
+          <div class="weather-data">
+            <div class="current-weather">
+              <div class="details">
+                <h2></h2>
+                <h6></h6>
+                <h6></h6>
+                <h6></h6>
+              </div>
+            </div>
+            <div class="days-forecast">
+              <h2>5-Day Forecast</h2>
+              <ul class="weather-cards">
+                <li class="card">
+                  <h3></h3>
+                  <h6></h6>
+                  <h6></h6>
+                  <h6></h6>
+                </li>
+                <li class="card">
+                  <h3></h3>
+                  <h6></h6>
+                  <h6></h6>
+                  <h6></h6>
+                </li>
+                <li class="card">
+                  <h3></h3>
+                  <h6></h6>
+                  <h6></h6>
+                  <h6></h6>
+                </li>
+                <li class="card">
+                  <h3></h3>
+                  <h6></h6>
+                  <h6></h6>
+                  <h6></h6>
+                </li>
+                <li class="card">
+                  <h3></h3>
+                  <h6></h6>
+                  <h6></h6>
+                  <h6></h6>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </section>
+  </div>
+  </body>
+</html>
