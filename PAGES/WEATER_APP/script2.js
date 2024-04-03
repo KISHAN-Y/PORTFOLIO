@@ -1,10 +1,35 @@
+// right click 
+document.addEventListener("contextmenu", function (e) {
+  e.preventDefault()
+}, false)
+
+const toggleSwitch = document.getElementById('toggle-dark-mode');
+
+toggleSwitch.addEventListener('change', toggleDarkMode);
+
+function toggleDarkMode() {
+  const isDarkMode = toggleSwitch.checked;
+  document.body.classList.toggle('dark-mode', isDarkMode);
+  localStorage.setItem('darkMode', isDarkMode);
+  updateToggleButton(isDarkMode);
+}
+
+function updateToggleButton(isDarkMode) {
+  if (isDarkMode) {
+    toggleSwitch.setAttribute('checked', 'checked');
+  } else {
+    toggleSwitch.removeAttribute('checked');
+  }
+}
+
 const cityInput = document.querySelector(".city-input");
 const searchButton = document.querySelector(".search-btn");
 const locationButton = document.querySelector(".location-btn");
 const currentWeatherDiv = document.querySelector(".current-weather");
 const weatherCardsDiv = document.querySelector(".weather-cards");
+const lenButton = document.querySelector('.len');
 
-const API_KEY = "4c93073071b64527c6490136ea46e05c"; 
+const API_KEY = "4c93073071b64527c6490136ea46e05c";
 
 const createWeatherCard = (cityName, weatherItem, index) => {
   if (index === 0) { // HTML for the main weather card
@@ -63,7 +88,9 @@ const getWeatherDetails = (cityName, latitude, longitude) => {
       document.getElementById("weatherResults").classList.add("show");
 
       // Scroll to weatherResults section
-      document.getElementById("weatherResults").scrollIntoView({ behavior: "smooth" });
+      document.getElementById("weatherResults").scrollIntoView({
+        behavior: "smooth"
+      });
     })
     .catch(() => {
       alert("An error occurred while fetching the weather forecast!");
@@ -77,25 +104,34 @@ const getCityCoordinates = () => {
 
   // Get entered city coordinates (latitude, longitude, and name) from the API response
   fetch(API_URL).then(response => response.json()).then(data => {
-      if (!data.length) return alert(`No coordinates found for ${cityName}`);
-      const { lat, lon, name } = data[0];
-      getWeatherDetails(name, lat, lon);
-    }).catch(() => {
-      alert("An error occurred while fetching the coordinates!");
-    });
+    if (!data.length) return alert(`No coordinates found for ${cityName}`);
+    const {
+      lat,
+      lon,
+      name
+    } = data[0];
+    getWeatherDetails(name, lat, lon);
+  }).catch(() => {
+    alert("An error occurred while fetching the coordinates!");
+  });
 }
 
 const getUserCoordinates = () => {
   navigator.geolocation.getCurrentPosition(
     position => {
-      const { latitude, longitude } = position.coords; 
+      const {
+        latitude,
+        longitude
+      } = position.coords;
       const API_URL = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${API_KEY}`;
       fetch(API_URL).then(response => response.json()).then(data => {
-          const { name } = data[0];
-          getWeatherDetails(name, latitude, longitude);
-        }).catch(() => {
-          alert("An error occurred while fetching the city name!");
-        });
+        const {
+          name
+        } = data[0];
+        getWeatherDetails(name, latitude, longitude);
+      }).catch(() => {
+        alert("An error occurred while fetching the city name!");
+      });
     },
     error => {
       if (error.code === error.PERMISSION_DENIED) {
@@ -108,7 +144,7 @@ const getUserCoordinates = () => {
 
 // Function to toggle scroll-up button visibility
 function toggleScrollButton() {
-  if (window.scrollY > 200) { 
+  if (window.scrollY > 200) {
     document.querySelector(".scroll-up-btn").classList.add("show");
   } else {
     document.querySelector(".scroll-up-btn").classList.remove("show");
@@ -119,28 +155,34 @@ function toggleScrollButton() {
 searchButton.addEventListener("click", getCityCoordinates);
 locationButton.addEventListener("click", getUserCoordinates);
 cityInput.addEventListener("keyup", e => e.key === "Enter" && getCityCoordinates());
-window.addEventListener("scroll", toggleScrollButton); 
+window.addEventListener("scroll", toggleScrollButton);
 
-
-
-$(document).ready(function(){
-  $('.scroll-up-btn').click(function(){
-    $('html').animate({scrollTop: 0});
-    $('html').css("scrollBehavior", "auto"); 
+$(document).ready(function () {
+  $('.scroll-up-btn').click(function () {
+    $('html').animate({
+      scrollTop: 0
+    });
+    $('html').css("scrollBehavior", "auto");
   });
 
-  $('.navbar .menu li a').click(function(){
+  $('.navbar .menu li a').click(function () {
     $('html').css("scrollBehavior", "smooth");
   });
-}); 
+});
 
-
-function toggleDarkMode(){
-  document.body.classList.toggle('dark-mode');
-  const isDarkMode = document.body.classList.contains('dark-mode');
-  localStorage.setItem('darkMode', isDarkMode);
-}
 const darkMode = localStorage.getItem('darkMode');
-if(darkMode === 'true'){
+if (darkMode === 'true') {
   document.body.classList.add('dark-mode');
+  toggleSwitch.checked = true;
 }
+
+updateToggleButton(darkMode === 'true');
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  setTimeout(function () {
+    document.querySelector('.loader').style.display = 'none';
+    document.getElementById('app').style.display = 'block';
+  }, 5000);
+});
