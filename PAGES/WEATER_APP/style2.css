@@ -8,17 +8,20 @@
   box-sizing: border-box;
   font-family: "Kode Mono", monospace;
   font-optical-sizing: auto;
-  font-weight: 600;
+  font-weight: 900;
   font-style: normal;
+  user-select: none;
 }
 
 /* custom scroll bar */
 ::-webkit-scrollbar {
   width: 10px;
 }
+
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #555;
 }
@@ -42,7 +45,7 @@
   border-radius: 6px;
   border-bottom-width: 2px;
   cursor: pointer;
-  opacity: 0; /* Initially hide the button */
+  opacity: 0;
   pointer-events: none;
   transition: all 0.3s ease;
 }
@@ -69,8 +72,15 @@ section {
   display: block;
 }
 
+.wea {
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  height: 58px;
+}
+
 .src {
-  max-width: 1300px; /* Maximum width for desktop */
+  max-width: 1300px;
+  /* Maximum width for desktop */
   padding: 0 80px;
   margin: auto;
 }
@@ -84,10 +94,15 @@ body {
   color: #fff;
 }
 
+h3 {
+  font-weight: 900;
+  font-size: 30px;
+}
+
 h1 {
   /* background: #e0f2fe; */
   -webkit-backdrop-filter: blur(3px);
-    backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
   font-size: 1.75rem;
   text-align: center;
   padding: 18px 0;
@@ -104,18 +119,6 @@ h1 {
   font-size: 1.75rem;
   -webkit-backdrop-filter: blur(3px);
   backdrop-filter: blur(3px);
-}
-
-h1 .len {
-  float: right;
-  height: 15%;
-  width: 5%;
-  display: flex;
-  align-items: end;
-  justify-content: center;
-  margin-right: 50px;
-  margin-top: 5px;
-  cursor: pointer;
 }
 
 .container {
@@ -232,11 +235,34 @@ h1 .len {
   justify-content: space-between;
   cursor: pointer;
   transition: all 0.6s;
+  font-weight: 900;
 }
-.weather-data .current-weather:hover{
+
+.dark-mode .weather-data .current-weather {
+  background: linear-gradient(-45deg, #26547c, #ef476f, #ffd166, #06d6ad, #fcfcfc);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.weather-data .current-weather:hover {
   border: 1px solid black;
   transform: scale(1.05);
 }
+
 .current-weather h2 {
   font-weight: 700;
   font-size: 1.7rem;
@@ -279,16 +305,19 @@ h1 .len {
   width: calc(100% / 5);
   /* background: #6C757D; */
   transition: all 0.5s;
-  background: rgba(217, 217, 217, 0.58);
+  background: rgba(217, 217, 217, 0.386);
   border: 1px solid white;
   box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
   backdrop-filter: blur(6px);
   border-radius: 17px;
   cursor: pointer;
 }
-.dark-mode .weather-cards .card{
-  color: 		#32ff9f;
+
+.dark-mode .weather-cards .card {
+  color: #FFA500;
+  font-weight: 900;
 }
+
 .weather-cards .card:hover {
   border: 1px solid black;
   transform: scale(1.05);
@@ -297,6 +326,7 @@ h1 .len {
 .weather-cards .card:active {
   transform: scale(0.95) rotateZ(1.7deg);
 }
+
 .weather-cards .card h3 {
   font-size: 1.3rem;
   font-weight: 600;
@@ -311,9 +341,11 @@ h1 .len {
   .weather-data .current-weather {
     padding: 20px;
   }
+
   .weather-cards {
     flex-wrap: wrap;
   }
+
   .weather-cards .card {
     width: calc(100% / 4 - 15px);
   }
@@ -329,32 +361,28 @@ h1 .len {
   .weather-input {
     width: 450px;
   }
+
   .weather-cards .card {
     width: calc(100% / 2 - 10px);
   }
 }
 
-@media (max-width: 768px) { /* Adjust this breakpoint as needed */
-  h1 .len {
-    overflow: hidden;
-    width: 30px;  /* Adjust width as needed for the "EN" text*/
-    white-space: nowrap;
-    text-overflow: ellipsis; 
-  }
-}
 
 @media (max-width: 750px) {
   h1 {
-    font-size: 1.45rem;
+    /* font-size: 1.45rem; */
     padding: 16px 0;
   }
+
   .container {
     flex-wrap: wrap;
     padding: 15px;
   }
+
   .weather-input {
     width: 100%;
   }
+
   .weather-data h2 {
     font-size: 1.35rem;
   }
@@ -362,15 +390,31 @@ h1 .len {
 
 /* Adjustments for smaller devices */
 @media (max-width: 576px) {
+  section {
+    padding: 229px 0;
+  }
+
   .src {
-    padding: 0 15px; /* Adjust padding for smaller devices */
+    padding: 0 15px;
+    /* Adjust padding for smaller devices */
+  }
+
+  .dark-mode H1 {
+    font-size: 1.75rem;
+    font-weight: 900;
   }
 }
 
 /* Adjustments for very small devices */
-@media (max-width: 400px) {
+/* @media (max-width: 400px) {
   h1 {
-    font-size: 1.2rem; /* Decrease font size for smaller devices */
+    font-size: 1.2rem; 
+  }
+} */
+@media only screen and (max-width: 600px) {
+  .loader {
+    width: 36px;
+    height: 36px;
   }
 }
 
@@ -385,11 +429,236 @@ h1 .len {
   background-position: 0 0, calc(var(--size) / 2) calc(var(--size) / 2);
   background-size: var(--size) var(--size);
 }
-.dark-mode .bby{
+
+.dark-mode .bby {
   width: 100%;
   height: 100%;
   background-color: #313131;
   background-image: radial-gradient(rgba(255, 255, 255, 0.171) 2px, transparent 0);
   background-size: 30px 30px;
   background-position: -5px -5px
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  top: 8px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+  ;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+/* Sun and Moon icons */
+.sun,
+.moon {
+  position: absolute;
+  top: 35%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  display: none;
+  /* Initially hide the icons */
+}
+
+.sun {
+  top: 10px;
+  left: 8px;
+  /* Position the sun icon */
+}
+
+.moon {
+  top: 10px;
+  right: 4px;
+  /* Position the moon icon */
+}
+
+.sun svg {
+  fill: #ffd700;
+  /* Sun color */
+}
+
+.moon svg {
+  fill: #737373;
+  /* Moon color */
+}
+
+.sun svg,
+.moon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.sun svg {
+  animation: rotate 15s linear infinite;
+}
+
+.moon svg {
+  fill: #73C0FC;
+  animation: tilt 5s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes tilt {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-10deg);
+  }
+
+  75% {
+    transform: rotate(10deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+input:checked+.slider {
+  background-color: #2196F3;
+}
+
+input:focus+.slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+input:checked+.slider .moon {
+  display: none;
+}
+
+input:checked+.slider .sun {
+  display: inline-block;
+}
+
+input:not(:checked)+.slider .moon {
+  display: inline-block
+}
+
+input:not(:checked)+.slider .sun {
+  display: none;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  background: #353535;
+  display: block;
+  margin: auto;
+  /* Center horizontally */
+  position: absolute;
+  /* Position relative to its closest positioned ancestor */
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  animation: rotationBack 1s ease-in-out infinite reverse;
+}
+
+.loader::before {
+  content: '';
+  box-sizing: border-box;
+  left: 0;
+  top: 0;
+  transform: rotate(45deg);
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  background: #2e2e2e;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+
+.loader::after {
+  content: '';
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: rgb(0, 0, 0);
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes rotationBack {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+footer {
+  background: #111;
+  padding: 15px 23px;
+  color: #fff;
+  text-align: center;
+}
+
+footer span a {
+  color: crimson;
+  text-decoration: none;
+}
+
+footer span a:hover {
+  text-decoration: underline;
 }
