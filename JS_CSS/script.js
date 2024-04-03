@@ -130,11 +130,11 @@ function sendEmail() {
   const bodyMessage = `Full Name: ${fullName.value}<br> Email: ${email.value}<br> Subject: ${subject.value}<br> Message: ${message.value}`; // Include message value
 
   Email.send({
-    Host : "smtp.elasticemail.com",
-    Username : "kishanyadav200903@gmail.com",
-    Password : "30A8B6CF5A5EB9CDD3F79E1961B0BBAEEE00",
-    To : 'kishanyadav200903@gmail.com',
-    From : "kishanyadav200903@gmail.com",
+    Host: "smtp.elasticemail.com",
+    Username: "kishanyadav200903@gmail.com",
+    Password: "30A8B6CF5A5EB9CDD3F79E1961B0BBAEEE00",
+    To: 'kishanyadav200903@gmail.com',
+    From: "kishanyadav200903@gmail.com",
     Subject: subject.value,
     Body: bodyMessage
   }).then(
@@ -162,9 +162,9 @@ form.addEventListener("submit", (e) => {
   form.reset();
 });
 //loader
-document.addEventListener("DOMContentLoaded", function() {
-  setTimeout(function() {
+document.addEventListener("DOMContentLoaded", function () {
+  setTimeout(function () {
     document.querySelector('.loader').style.display = 'none';
     document.getElementById('app').style.display = 'block';
-  }, 5000); 
+  }, 5000);
 });
