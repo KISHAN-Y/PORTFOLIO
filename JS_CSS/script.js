@@ -161,3 +161,10 @@ form.addEventListener("submit", (e) => {
   sendEmail();
   form.reset();
 });
+//loader
+document.addEventListener("DOMContentLoaded", function() {
+  setTimeout(function() {
+    document.querySelector('.loader').style.display = 'none';
+    document.getElementById('app').style.display = 'block';
+  }, 5000); 
+});
