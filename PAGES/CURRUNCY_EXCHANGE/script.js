@@ -65,14 +65,14 @@ function convert(currency1, currency2, value) {
 }
 
 // right click 
-// document.addEventListener("contextmenu", function (e) {
-//     e.preventDefault()
-// }, false)
+document.addEventListener("contextmenu", function (e) {
+    e.preventDefault()
+}, false)
 
 //loader
-// document.addEventListener("DOMContentLoaded", function () {
-//     setTimeout(function () {
-//         document.querySelector('.loader').style.display = 'none';
-//         document.getElementById('app').style.display = 'block';
-//     }, 5000);
-// });
+document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(function () {
+        document.querySelector('.loader').style.display = 'none';
+        document.getElementById('app').style.display = 'block';
+    }, 5000);
+});
