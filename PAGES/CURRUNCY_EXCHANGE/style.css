@@ -14,11 +14,11 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     flex-direction: column;
-    padding-top: 5vh;
+    padding-top: 5vh; /* Adjust as needed */
 }
 
 .container {
-    width: 800PX;
+    max-width: 100%; /* Adjust as needed */
     padding: 20px;
     background: rgba(255, 255, 255, 0.8);
     border-radius: 20px;
@@ -47,7 +47,7 @@ h1 {
 }
 
 .currency {
-    width: 100%;
+    width: 310px; /* Adjust as needed */
     height: 40px;
     margin-bottom: 10px;
     border-radius: 10px;
@@ -55,7 +55,7 @@ h1 {
 
 .select-currency,
 input[type="number"] {
-    width: 100%;
+    width: 310px; /* Adjust as needed */
     height: 40px;
     font-size: 1em;
     margin-bottom: 10px;
@@ -68,7 +68,7 @@ input[type="number"] {
 }
 
 .btn {
-    width: 100%;
+    width: 310px; /* Adjust as needed */
     height: 40px;
     background: #7868e6;
     color: white;
@@ -84,9 +84,9 @@ input[type="number"] {
 }
 
 .flag-icon {
-    width: 100%;
+    width: 300px; /* Adjust as needed */
     height: auto;
-    margin-bottom: 10px;
+    margin-right: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -94,8 +94,7 @@ input[type="number"] {
 
 img {
     height: 30px;
-    max-width: 100%;
-    max-height: 100%;
+    width: auto; /* Adjust as needed */
     border: 2px dotted #555;
 }
 
@@ -106,79 +105,17 @@ footer {
     font-size: 16px;
 }
 
-
 /* Media query for mobile devices */
 @media only screen and (max-width: 768px) {
     .box {
         flex-direction: column;
-        margin: 3px;
     }
 
-    h1 {
-        font-size: 1.5rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .left_box,
-    .right_box {
-        flex: none;
+    .currency,
+    .select-currency,
+    input[type="number"],
+    .btn,
+    .flag-icon {
         width: 100%;
-        margin: 5px 0;
-    }
-}
-
-.loader {
-    width: 48px;
-    height: 48px;
-    background: #353535;
-    display: block;
-    margin: auto;
-    /* Center horizontally */
-    position: absolute;
-    /* Position relative to its closest positioned ancestor */
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    box-sizing: border-box;
-    animation: rotationBack 1s ease-in-out infinite reverse;
-}
-
-.loader::before {
-    content: '';
-    box-sizing: border-box;
-    left: 0;
-    top: 0;
-    transform: rotate(45deg);
-    position: absolute;
-    width: 48px;
-    height: 48px;
-    background: #2e2e2e;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
-}
-
-.loader::after {
-    content: '';
-    box-sizing: border-box;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    background: rgb(0, 0, 0);
-    transform: translate(-50%, -50%);
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
-}
-
-@keyframes rotationBack {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(-360deg);
     }
 }

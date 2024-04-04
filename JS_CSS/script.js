@@ -1,8 +1,8 @@
 //RIGHT CLICK 
 
-document.addEventListener("contextmenu", function (e) {
-  e.preventDefault()
-}, false)
+// document.addEventListener("contextmenu", function (e) {
+//   e.preventDefault()
+// }, false)
 //SERVICES SECTION
 function toggleVisibility() {
   const extraContent = document.querySelector('.extra');
